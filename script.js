@@ -50,7 +50,7 @@ function initSmoothScroll() {
 
 function initScrollReveal() {
   var items = document.querySelectorAll(
-    '.case-study, .skills__card, .about__content, .contact__form, .hero__preview, .hero__content'
+    '.case-study, .skills__card, .about__content, .contact__form, .hero__showcase, .hero__content'
   );
 
   items.forEach(function(el) {

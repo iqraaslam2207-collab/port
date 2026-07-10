@@ -4,7 +4,9 @@ Professional front-end developer portfolio showcasing selected web projects.
 
 ## Live demo
 
-**[View portfolio](https://iqraaslam2207-collab.github.io/portfolio/)**
+**[View portfolio](https://iqraaslam2207-collab.github.io/port/)**
+
+> Repo abhi `port` ke naam se hai. GitHub → Settings → Repository name → `portfolio` rename kar sakti ho.
 
 ## Projects featured
 
