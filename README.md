@@ -8,22 +8,35 @@ Professional front-end developer portfolio showcasing selected web projects.
 
 > Repo abhi `port` ke naam se hai. GitHub → Settings → Repository name → `portfolio` rename kar sakti ho.
 
-## Projects featured
+# Iqra Aslam — Frontend Developer
 
-- [Holiday Directory](https://iqraaslam2207-collab.github.io/holiday-directory/home.html)
-- [Daraz Clone](https://iqraaslam2207-collab.github.io/daraz-clone/)
+Hi, I'm Iqra Aslam, a frontend developer from Faisalabad, Pakistan. I build clean, modern, and responsive websites.
 
-## Tech stack
+## Live Portfolio
+**[View Live Portfolio](https://iqraaslam2207-collab.github.io/port/)**
 
+## Featured Projects
+
+### 1. Holiday Directory
+Vacation rental platform with search, packages, and booking form.
+- **Live**: [View Project](https://iqraaslam2207-collab.github.io/holiday-directory/home.html)
+- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/holiday-directory)
+
+### 2. Daraz Clone
+Responsive e-commerce homepage inspired by Daraz.pk.
+- **Live**: [View Project](https://iqraaslam2207-collab.github.io/daraz-clone/)
+- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/daraz-clone)
+
+## Tech Stack
 - HTML5
-- CSS3
+- CSS3 & Tailwind CSS
 - JavaScript
-- Font Awesome
+- React (Learning)
+- Git & GitHub
 
-## Local preview
+## About Me
+I'm passionate about creating beautiful user interfaces and learning full stack development. Open to freelance opportunities.
 
-Open `index.html` in your browser, or run a static server from this folder.
-
-## Author
-
-**Iqra Aslam** — [GitHub](https://github.com/iqraaslam2207-collab)
+## Contact
+- GitHub: [@iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
+- Email: [iqraaslam2207@gmail.com]
