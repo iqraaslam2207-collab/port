@@ -35,7 +35,7 @@ Responsive e-commerce homepage inspired by Daraz.pk.
 - Git & GitHub
 
 ## About Me
-I'm passionate about creating beautiful user interfaces and learning full stack development. Open to freelance opportunities.
+I'm passionate about creating beautiful user interfaces and learning frontend developmer. Open to freelance opportunities.
 
 ## Contact
 - GitHub: [@iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
