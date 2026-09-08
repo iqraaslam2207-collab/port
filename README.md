@@ -1,42 +1,46 @@
 # Iqra Aslam — Portfolio
 
-Professional front-end developer portfolio showcasing selected web projects.
+Sleek, engineering-driven personal site. Built with **React**, **Vite**, **Tailwind CSS**, **Framer Motion**, and **Lucide**.
 
-## Live demo
+**Live:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
 
-**[View portfolio](https://iqraaslam2207-collab.github.io/port/)**
+## Run locally
 
-> Repo abhi `port` ke naam se hai. GitHub → Settings → Repository name → `portfolio` rename kar sakti ho.
+```bash
+npm install
+npm run dev
+```
 
-# Iqra Aslam — Frontend Developer
+Production build:
 
-Hi, I'm Iqra Aslam, a frontend developer from Faisalabad, Pakistan. I build clean, modern, and responsive websites.
+```bash
+npm run build
+npm run preview
+```
 
-## Live Portfolio
-**[View Live Portfolio](https://iqraaslam2207-collab.github.io/port/)**
+The Vite `base` is `/port/` so GitHub Pages can host this as a project site.
 
-## Featured Projects
+## Swap content
 
-### 1. Holiday Directory
-Vacation rental platform with search, packages, and booking form.
-- **Live**: [View Project](https://iqraaslam2207-collab.github.io/holiday-directory/home.html)
-- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/holiday-directory)
+All copy, projects, tech categories, experience, and social links live in one file:
 
-### 2. Daraz Clone
-Responsive e-commerce homepage inspired by Daraz.pk.
-- **Live**: [View Project](https://iqraaslam2207-collab.github.io/daraz-clone/)
-- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/daraz-clone)
+[`src/data/site.js`](src/data/site.js)
 
-## Tech Stack
-- HTML5
-- CSS3 & Tailwind CSS
-- JavaScript
-- React (Learning)
-- Git & GitHub
+- Add a LinkedIn URL to `site.linkedin` to show that icon in the hero.
+- Replace `public/resume.html` (or point `resumeUrl` at a PDF in `public/`).
+- Drop project screenshots into `public/images/` and update the `projects` array.
 
-## About Me
-I'm passionate about creating beautiful user interfaces and learning frontend developmer. Open to freelance opportunities.
+## Deploy
 
-## Contact
-- GitHub: [@iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
-- Email: [iqraaslam2207@gmail.com]
+Pushes to `main` run [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+In the GitHub repo: **Settings → Pages → Source → GitHub Actions**.
+
+## Structure
+
+```
+src/
+  components/   Navbar, Hero, About, TechStack, TechBadge,
+                Projects, ProjectCard, Experience, Contact, Footer
+  data/site.js  editable content
+```

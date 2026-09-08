@@ -1,239 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Iqra Aslam — Professional front-end developer specializing in responsive, accessible websites.">
-    <meta name="theme-color" content="#0c1222">
-    <title>Iqra Aslam — Front-End Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="header">
-        <div class="container header__inner">
-            <a href="#home" class="header__brand">Iqra Aslam</a>
-            <button class="header__toggle" type="button" aria-label="Open menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="header__nav" aria-label="Primary">
-                <a href="#work">Work</a>
-                <a href="#skills">Skills</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="header__cta">Hire me</a>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
-       <!-- ==================== HERO SECTION ==================== -->
-<section id="home" class="hero">
-    <div class="container hero__grid">
-      <div class="hero__content">
-        <span class="badge">Available for freelance work</span>
-        
-        <h1>Hi, I'm <span class="highlight">Iqra Aslam</span></h1>
-        
-        <p class="hero__lead">
-          Frontend Developer building clean, modern and responsive websites with 
-          HTML, CSS, Tailwind & React.
-        </p>
-        
-        <div class="hero__actions">
-          <a href="#work" class="btn btn--primary">View My Projects</a>
-          <a href="#contact" class="btn btn--secondary">Contact Me</a>
-        </div>
-      </div>
-  
-      <!-- Browser Previews -->
-      <div class="hero__preview hero__showcase" aria-hidden="true">
-        <div class="showcase__stack">
-          <article class="browser browser--featured">
-            <div class="browser__bar">
-              <span></span><span></span><span></span>
-              <div class="browser__url">holiday-directory.app</div>
-            </div>
-            <div class="browser__screen" style="background-image: url('images/hero.jpg');"></div>
-            <p class="browser__caption">Holiday Directory</p>
-          </article>
-          
-          <article class="browser browser--daraz">
-            <div class="browser__bar browser__bar--daraz">
-              <span></span><span></span><span></span>
-              <div class="browser__url">daraz.pk</div>
-            </div>
-            <div class="browser__screen" style="background-image: url('images/image.png');"></div>
-            <p class="browser__caption">Daraz Clone</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="section section--alt">
-    <div class="container">
-      <header class="section__header">
-        <p class="section__label">Selected Work</p>
-        <h2>Featured Projects</h2>
-        <p class="section__desc">Here are some of the projects I have built with clean code and modern design.</p>
-      </header>
-  
-      <!-- Project 1 -->
-      <article class="case-study">
-        <div class="case-study__inner">
-          <a href="https://iqraaslam2207-collab.github.io/holiday-directory/home.html" target="_blank" class="case-study__link">
-            <div class="case-study__media">
-              <img src="images/hero.jpg" alt="Holiday Directory" loading="lazy">
-            </div>
-            <div class="case-study__body">
-              <div class="case-study__top">
-                <h3>Holiday Directory</h3>
-                <span class="case-study__year">2026</span>
-              </div>
-              <p class="case-study__summary">A beautiful vacation rental platform with search, packages, and booking form.</p>
-              <ul class="case-study__tags">
-                <li>HTML5</li>
-                <li>Tailwind CSS</li>
-                <li>JavaScript</li>
-                <li>Responsive</li>
-              </ul>
-            </div>
-          </a>
-          <div class="case-study__actions">
-            <a href="https://iqraaslam2207-collab.github.io/holiday-directory/home.html" class="case-study__action" target="_blank">View Live →</a>
-            <a href="https://github.com/iqraaslam2207-collab/holiday-directory" class="case-study__source" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </article>
-  
-      <!-- Project 2 -->
-      <article class="case-study case-study--daraz">
-        <div class="case-study__inner">
-          <a href="https://iqraaslam2207-collab.github.io/daraz-clone/" target="_blank" class="case-study__link">
-            <div class="case-study__media">
-              <img src="images/image.png" alt="Daraz Clone Preview" loading="lazy">
-        
-            </div>
-            <div class="case-study__body">
-              <div class="case-study__top">
-                <h3>Daraz Clone</h3>
-                <span class="case-study__year">2026</span>
-              </div>
-              <p class="case-study__summary">Fully responsive e-commerce website clone with cart, search and modern UI.</p>
-              <ul class="case-study__tags">
-                <li>HTML5</li>
-                <li>Tailwind CSS</li>
-                <li>JavaScript</li>
-                <li>E-commerce</li>
-              </ul>
-            </div>
-          </a>
-          <div class="case-study__actions">
-            <a href="https://iqraaslam2207-collab.github.io/daraz-clone/" class="case-study__action" target="_blank">View Live →</a>
-            <a href="https://github.com/iqraaslam2207-collab/daraz-clone" class="case-study__source" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <div class="container">
-      <header class="section__header section__header--center">
-        <p class="section__label">Expertise</p>
-        <h2>My Skills</h2>
-      </header>
-      
-      <div class="skills">
-        <div class="skills__card">
-          <i class="fas fa-code" aria-hidden="true"></i>
-          <h3>HTML & CSS</h3>
-          <p>Semantic HTML5 and modern CSS (Flexbox, Grid, Tailwind)</p>
-        </div>
-        
-        <div class="skills__card">
-          <i class="fas fa-mobile-screen" aria-hidden="true"></i>
-          <h3>Responsive Design</h3>
-          <p>Mobile-first approach for all screen sizes</p>
-        </div>
-        
-        <div class="skills__card">
-          <i class="fas fa-js" aria-hidden="true"></i>
-          <h3>JavaScript</h3>
-          <p>DOM manipulation, events, and interactive features</p>
-        </div>
-        
-        <div class="skills__card">
-          <i class="fab fa-react" aria-hidden="true"></i>
-          <h3>React & Next.js</h3>
-          <p>Learning modern frameworks for dynamic web apps</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section section--alt">
-    <div class="container about">
-      <div class="about__profile">
-        <div class="about__avatar" aria-hidden="true">IA</div>
-        <p class="about__role">Frontend Developer</p>
-      </div>
-      <div class="about__content">
-        <header class="section__header">
-          <p class="section__label">About Me</p>
-          <h2>Building with purpose</h2>
-        </header>
-        <p>I'm Iqra Aslam, a passionate front-end developer from Faisalabad, Pakistan. I love creating clean, responsive, and user-friendly websites.</p>
-        <p>I'm currently learning React and Next.js to become a Full Stack Developer. I enjoy turning ideas into beautiful web experiences.</p>
-        <p>I'm open to freelance opportunities and collaborations.</p>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="section section--dark">
-    <div class="container contact">
-      <div class="contact__intro">
-        <header class="section__header">
-          <p class="section__label section__label--light">Get In Touch</p>
-          <h2>Start a conversation</h2>
-        </header>
-        <p>Have a project in mind? I'm available for freelance work. Feel free to reach out!</p>
-        <a href="https://github.com/iqraaslam2207-collab" class="contact__github" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github" aria-hidden="true"></i> github.com/iqraaslam2207-collab
-        </a>
-      </div>
-      
-      <form class="contact__form" id="contactForm" novalidate>
-        <div class="form-group">
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
-          <span class="form-error"></span>
-        </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@email.com">
-          <span class="form-error"></span>
-        </div>
-        <div class="form-group">
-          <label for="message">Project details</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-          <span class="form-error"></span>
-        </div>
-        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
-      </form>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>&copy; 2026 Iqra Aslam. All rights reserved.</p>
-      <nav aria-label="Footer">
-        <a href="#home">Back to Top</a>
-        <a href="https://github.com/iqraaslam2207-collab" target="_blank">GitHub</a>
-      </nav>
-    </div>
-  </footer>
-
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Iqra Aslam — full-stack engineer in Faisalabad. High-performance apps, clean APIs, and scalable product architecture."
+    />
+    <meta name="theme-color" content="#09090b" />
+    <meta property="og:title" content="Iqra Aslam — Full-stack Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineering for high-performance apps, clean APIs, and scalable systems."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://iqraaslam2207-collab.github.io/port/" />
+    <meta
+      property="og:image"
+      content="https://iqraaslam2207-collab.github.io/port/images/holiday-live.jpg"
+    />
+    <title>Iqra Aslam — Full-stack Engineer</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
