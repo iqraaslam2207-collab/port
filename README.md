@@ -32,9 +32,9 @@ All copy, projects, tech categories, experience, and social links live in one fi
 
 ## Deploy
 
-Pushes to `main` run [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+Pushes to `main` build the site and publish it to the `gh-pages` branch.
 
-In the GitHub repo: **Settings → Pages → Source → GitHub Actions**.
+In the GitHub repo: **Settings → Pages → Source → Deploy from a branch → `gh-pages` / `/ (root)`**.
 
 ## Structure
 
