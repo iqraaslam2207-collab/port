@@ -11,15 +11,6 @@ npm install
 npm run dev
 ```
 
-Production build:
-
-```bash
-npm run build
-npm run preview
-```
-
-The Vite `base` is `/port/` so GitHub Pages can host this as a project site.
-
 ## Swap content
 
 All copy, projects, tech categories, experience, and social links live in one file:
@@ -29,12 +20,6 @@ All copy, projects, tech categories, experience, and social links live in one fi
 - Add a LinkedIn URL to `site.linkedin` to show that icon in the hero.
 - Replace `public/resume.html` (or point `resumeUrl` at a PDF in `public/`).
 - Drop project screenshots into `public/images/` and update the `projects` array.
-
-## Deploy
-
-Pushes to `main` build the site and publish it to the `gh-pages` branch.
-
-In the GitHub repo: **Settings → Pages → Source → Deploy from a branch → `gh-pages` / `/ (root)`**.
 
 ## Structure
 

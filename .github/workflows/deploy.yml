@@ -19,12 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Commit built files for GitHub Pages on main
+        if: github.actor != 'github-actions[bot]'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[pages] sync production build"
+          file_pattern: index.html assets/* images/* favicon.svg 404.html resume.html
       - name: Publish dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
