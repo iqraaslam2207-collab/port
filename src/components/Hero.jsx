@@ -1,26 +1,46 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
-import { projects, site, socials } from "../data/site.js";
+import { useEffect, useState } from "react";
+import { ArrowRight, Copy, Check } from "lucide-react";
+import { site, terminalLines } from "../data/site.js";
+import { usePortfolio } from "../context/PortfolioContext.jsx";
 import Reveal from "./Reveal.jsx";
 import StatusBadge from "./StatusBadge.jsx";
 
-const icons = {
-  github: Github,
-  linkedin: Linkedin,
-  mail: Mail,
-};
-
 export default function Hero() {
-  const preview = projects.slice(0, 2);
+  const { showToast } = usePortfolio();
+  const [copied, setCopied] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(1);
+
+  useEffect(() => {
+    if (visibleCount >= terminalLines.length) return undefined;
+    const id = window.setTimeout(() => setVisibleCount((count) => count + 1), 420);
+    return () => window.clearTimeout(id);
+  }, [visibleCount]);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email);
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = site.email;
+      document.body.appendChild(field);
+      field.select();
+      document.execCommand("copy");
+      field.remove();
+    }
+    setCopied(true);
+    showToast("Email copied to clipboard");
+    window.setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <section id="home" className="pt-10 sm:pt-16">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pb-24">
-        <Reveal>
-          <StatusBadge label={site.availabilityLabel} className="mb-6 inline-flex" />
-          <p className="mb-3 text-sm font-medium text-forest">
+    <section id="home" className="px-4 pt-28 pb-12 sm:pt-32">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <Reveal immediate>
+          <StatusBadge label={site.availabilityLabel} className="mb-6 inline-flex sm:hidden" />
+          <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-cyan">
             {site.role} · {site.location}
           </p>
-          <h1 className="max-w-xl text-[clamp(2.2rem,5.4vw,3.9rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
+          <h1 className="max-w-xl text-[clamp(2.4rem,5.8vw,4.4rem)] font-semibold leading-[0.98] tracking-[-0.05em]">
             {site.headline}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-mute sm:text-lg">
@@ -29,56 +49,39 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-md bg-mango px-4 py-2.5 text-sm font-semibold text-ink"
+              className="group inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-void"
             >
-              See the work
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              Explore Work
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-md border border-line px-4 py-2.5 text-sm font-medium hover:bg-paper"
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="glass inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-ink"
             >
-              Get in touch
-            </a>
+              {copied ? <Check className="h-4 w-4 text-signal" /> : <Copy className="h-4 w-4" />}
+              {copied ? "Copied" : "Copy Email"}
+            </button>
           </div>
-          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Social">
-            {socials.map((item) => {
-              const Icon = icons[item.icon] || Mail;
-              return (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1.5 text-xs text-mute hover:text-ink"
-                  >
-                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                    {item.name}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
         </Reveal>
 
-        <Reveal delay={0.1} className="relative" aria-hidden="true">
-          {preview.map((project, index) => (
-            <article key={project.id} className={`window ${index === 1 ? "-mt-8 ml-8 sm:ml-14" : ""}`}>
-              <div className="window-chrome">
-                <span />
-                <span />
-                <span />
-                <span className="ml-2 truncate text-[11px] text-mute">
-                  {project.title}
-                </span>
-              </div>
-              <img
-                src={project.image}
-                alt=""
-                className="aspect-[16/10] w-full object-cover object-top"
-              />
-            </article>
-          ))}
+        <Reveal immediate delay={0.12}>
+          <div className="glass glow-border overflow-hidden rounded-2xl">
+            <div className="flex items-center gap-2 border-b border-line px-4 py-2.5">
+              <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+              <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+              <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+              <span className="ml-2 font-mono text-[11px] text-mute">ia@systems — zsh</span>
+            </div>
+            <div className="min-h-[240px] space-y-2 bg-black/25 p-4 font-mono text-[12px] leading-6 sm:text-[13px]">
+              {terminalLines.slice(0, visibleCount).map((line, index) => (
+                <p key={`${line.text}-${index}`} className={line.prompt === "ok" ? "text-signal" : "text-mute"}>
+                  <span className="text-violet">{line.prompt}</span> {line.text}
+                </p>
+              ))}
+              <span className="inline-block h-4 w-1.5 animate-pulse bg-cyan/80" />
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

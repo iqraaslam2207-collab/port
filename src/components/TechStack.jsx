@@ -1,53 +1,46 @@
-import { useState } from "react";
 import { techCategories } from "../data/site.js";
+import { usePortfolio } from "../context/PortfolioContext.jsx";
 import Reveal from "./Reveal.jsx";
 import TechBadge from "./TechBadge.jsx";
 
 export default function TechStack() {
-  const [active, setActive] = useState(techCategories[0].id);
-  const current = techCategories.find((item) => item.id === active) || techCategories[0];
+  const { activeStack, setActiveStack } = usePortfolio();
 
   return (
-    <section id="architecture" className="scroll-mt-24 border-t border-line py-20">
-      <div className="mx-auto max-w-6xl px-4">
+    <section id="architecture" className="scroll-mt-28 px-4 py-12">
+      <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-medium text-forest">Stack</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-            Tools I use to ship.
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan">Technical capabilities</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+            Hover a stack. Watch the work respond.
           </h2>
         </Reveal>
 
-        <Reveal delay={0.06} className="mt-10 grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
-          <div className="flex gap-2 overflow-x-auto lg:flex-col" role="tablist" aria-label="Tech categories">
-            {techCategories.map((category) => {
-              const selected = category.id === active;
-              return (
-                <button
-                  key={category.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={selected}
-                  onClick={() => setActive(category.id)}
-                  className={`whitespace-nowrap rounded-md border px-4 py-3 text-left text-sm ${
-                    selected ? "border-ink bg-ink text-canvas" : "border-line bg-paper text-mute hover:text-ink"
-                  }`}
-                >
-                  {category.title}
-                </button>
-              );
-            })}
-          </div>
-
-          <article className="rounded-lg border border-line bg-paper p-6 sm:p-8">
-            <h3 className="text-xl font-semibold">{current.title}</h3>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-mute">{current.description}</p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {current.items.map((item) => (
-                <TechBadge key={item} label={item} />
-              ))}
-            </div>
-          </article>
-        </Reveal>
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {techCategories.map((category) => {
+            const active = activeStack?.id === category.id;
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onMouseEnter={() => setActiveStack(category)}
+                onMouseLeave={() => setActiveStack(null)}
+                onFocus={() => setActiveStack(category)}
+                onBlur={() => setActiveStack(null)}
+                className={`glass rounded-2xl p-5 text-left transition-shadow ${
+                  active ? "shadow-[0_0_0_1px_rgb(6_182_212_/_0.45)]" : ""
+                }`}
+              >
+                <h3 className="text-lg font-semibold">{category.title}</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {category.items.map((item) => (
+                    <TechBadge key={item} label={item} />
+                  ))}
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

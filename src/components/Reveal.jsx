@@ -7,16 +7,20 @@ export default function Reveal({
   className = "",
   delay = 0,
   as = "div",
+  immediate = false,
   ...props
 }) {
   const reduce = useReducedMotion();
   const Tag = motion[as] || motion.div;
+  const hidden = reduce ? false : { opacity: 0, y: 22 };
+  const shown = { opacity: 1, y: 0 };
 
   return (
     <Tag
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 22 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      initial={hidden}
+      animate={immediate ? shown : undefined}
+      whileInView={immediate ? undefined : shown}
       viewport={{ once: true, margin: "-72px" }}
       transition={{ duration: 0.55, delay, ease }}
       {...props}
