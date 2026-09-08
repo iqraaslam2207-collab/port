@@ -17,12 +17,12 @@ export const site = {
   availabilityLabel: "Available for new projects",
   github: "https://github.com/iqraaslam2207-collab",
   linkedin: "",
-  headline: "Full-stack engineering for intelligent, durable systems.",
+  headline: "Full-stack developer who ships the whole product.",
   pitch:
-    "I design high-performance applications with clean APIs and interfaces that stay coherent as they scale. Architecture first, then the pixels — so products ship fast without becoming fragile.",
+    "I build booking apps, storefronts, and dashboards with MongoDB, Express, React, and Node.js. You get a real interface you can click — not a mockup.",
   about: [
-    "I’m Iqra Aslam, a full-stack engineer in Faisalabad. I take a product from data model to production UI — search, carts, booking flows, and the APIs that keep them honest.",
-    "The work is systems-shaped: clear boundaries, predictable state, and interfaces that still feel quiet when the feature set grows. I care about performance, accessibility, and the kind of code another engineer can extend.",
+    "I’m Iqra Aslam, a full-stack developer in Faisalabad. I take a feature from the database to the browser: search, carts, booking flows, and the screens people actually use.",
+    "If you need a web app, a storefront, or a product page that already looks like a product, write to me. I’m available for freelance work.",
   ],
 };
 
@@ -78,9 +78,9 @@ export const projects = [
     repoUrl: "https://github.com/iqraaslam2207-collab/holiday-directory",
     tags: ["JavaScript", "Search", "Booking", "Responsive"],
     points: [
-      "Challenge: a rental marketplace UX — search, packages, and booking — without a booking engine behind it.",
-      "Architecture: modular listing state, composed package views, and a validated request flow.",
-      "Impact: a live vacation-rental surface with destination search and a complete booking enquiry path.",
+      "Needed search, packages, and a booking form on a vacation-rental site.",
+      "Built listing cards, filters, and a request form that works on phones.",
+      "Live site with destination search and a complete enquiry path.",
     ],
   },
   {
@@ -93,9 +93,9 @@ export const projects = [
     repoUrl: "https://github.com/iqraaslam2207-collab/daraz-clone",
     tags: ["JavaScript", "Catalog", "Cart", "E-commerce"],
     points: [
-      "Challenge: marketplace density — nav, promotions, catalog, and cart — on a single storefront.",
-      "Architecture: componentized catalog grid and cart state on a mobile-first layout system.",
-      "Impact: a fully responsive commerce homepage that holds promotional and product information without collapsing.",
+      "Needed a dense shop homepage: promotions, catalog, and cart.",
+      "Split the page into catalog grid and cart state, mobile-first.",
+      "Responsive storefront that still reads clearly on a small screen.",
     ],
   },
   {
@@ -108,9 +108,9 @@ export const projects = [
     repoUrl: "https://github.com/iqraaslam2207-collab/Nestora-Design",
     tags: ["React", "Vite", "Brand system"],
     points: [
-      "Challenge: a furniture studio that had to feel like a product, not a brochure.",
-      "Architecture: Vite + React component system for collections, story, and contact.",
-      "Impact: a coherent brand surface with reusable UI primitives ready to grow into commerce.",
+      "A furniture studio site that had to feel like a product, not a flyer.",
+      "React + Vite components for collections, story, and contact.",
+      "Brand site ready to grow into a shop later.",
     ],
   },
   {
@@ -124,9 +124,9 @@ export const projects = [
     repoUrl: "https://github.com/iqraaslam2207-collab/hotel-booking-confirmation",
     tags: ["HTML", "CSS", "Guest ops"],
     points: [
-      "Challenge: post-booking confirmation as an operational dashboard, not a thank-you page.",
-      "Architecture: semantic information hierarchy for receipt, Wi-Fi, and breakfast logistics.",
-      "Impact: a guest-ready confirmation portal that reads in one glance on mobile and desktop.",
+      "Hotel confirmation had to show receipt, Wi-Fi, and breakfast — not just “thanks”.",
+      "Clear layout so a guest can find the details in one glance.",
+      "Works as a small guest dashboard on phone and desktop.",
     ],
   },
 ];
@@ -135,37 +135,34 @@ export const experience = [
   {
     id: "freelance",
     period: "2026 — Present",
-    title: "Independent Full-Stack Engineer",
-    org: "Freelance · Faisalabad, PK",
+    title: "Freelance full-stack developer",
+    org: "Faisalabad, Pakistan",
     summary:
-      "End-to-end product work: interface architecture, REST-shaped data, and production UI for travel, commerce, and hospitality.",
-    impact: "Four live product surfaces shipped with search, cart, booking, and confirmation flows.",
+      "I design and build web apps for travel, shops, and hotels — from the data to the screen.",
+    impact: "Four live sites with search, cart, booking, and confirmation flows.",
   },
   {
     id: "holiday-sprint",
     period: "2026",
-    title: "Holiday Directory — product sprint",
-    org: "Selected delivery",
-    summary:
-      "Designed the listing/search/booking path as a single coherent system, then implemented it as a responsive public site.",
-    impact: "Live rental directory with destination search and packaged stay enquiry.",
+    title: "Holiday Directory",
+    org: "Client / personal delivery",
+    summary: "Search, listings, packages, and a booking request form for vacation rentals.",
+    impact: "Live site with destination search.",
   },
   {
     id: "commerce-sprint",
     period: "2026",
-    title: "Marketplace storefront — commerce delivery",
-    org: "Selected delivery",
-    summary:
-      "Rebuilt a dense marketplace homepage: promotional rails, catalog, and cart interaction under a strict visual grid.",
-    impact: "Responsive e-commerce clone used as a production-quality storefront reference.",
+    title: "Marketplace storefront",
+    org: "Personal delivery",
+    summary: "Shop homepage with promotions, product grid, and cart.",
+    impact: "Fully responsive e-commerce clone.",
   },
   {
     id: "react-studio",
     period: "2026",
-    title: "Nestora Design — React studio",
-    org: "Selected delivery",
-    summary:
-      "Moved a furniture brand into a componentized React architecture so collections and story could share one design language.",
-    impact: "Vite + React studio site with a reusable visual system.",
+    title: "Nestora Design",
+    org: "Personal delivery",
+    summary: "Furniture studio in React: collections, story, and contact.",
+    impact: "Vite + React brand site.",
   },
 ];

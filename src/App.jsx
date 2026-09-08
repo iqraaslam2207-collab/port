@@ -9,7 +9,7 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen text-zinc-50">
+    <div className="min-h-screen bg-canvas text-ink">
       <a className="skip-link" href="#main">
         Skip to content
       </a>

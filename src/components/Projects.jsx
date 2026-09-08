@@ -4,21 +4,19 @@ import Reveal from "./Reveal.jsx";
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="projects" className="scroll-mt-24 border-t border-line py-20">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="max-w-2xl">
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-violet-300/80">
-            Selected work
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-zinc-50 sm:text-4xl">
-            Featured projects
+          <p className="text-sm font-medium text-forest">Selected work</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+            Four live product screens.
           </h2>
-          <p className="mt-3 text-base text-zinc-400">
-            Live product surfaces — each one with a concrete engineering problem, an architectural response, and a measurable outcome.
+          <p className="mt-3 text-base text-mute">
+            Travel, commerce, interiors, and a hotel guest page — each one you can open.
           </p>
         </Reveal>
 
-        <div className="mt-14 space-y-20">
+        <div className="mt-14 space-y-16">
           {projects.map((project, index) => (
             <Reveal key={project.id} delay={index * 0.04}>
               <ProjectCard project={project} reverse={index % 2 === 1} />

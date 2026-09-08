@@ -5,15 +5,7 @@ import StatusBadge from "./StatusBadge.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const sections = navLinks
@@ -46,21 +38,13 @@ export default function Navbar() {
   const close = () => setOpen(false);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div
-        className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border px-3 py-2.5 backdrop-blur-md transition-colors duration-300 sm:px-4 ${
-          scrolled
-            ? "border-zinc-800/80 bg-zinc-950/80 shadow-[0_12px_40px_-24px_rgba(0,0,0,0.8)]"
-            : "border-zinc-800/60 bg-zinc-950/55"
-        }`}
-      >
-        <a href="#home" className="flex items-center gap-2.5 shrink-0" onClick={close}>
-          <span className="grid h-8 w-8 place-items-center rounded-lg border border-zinc-800 bg-zinc-900 text-[11px] font-semibold tracking-tight text-zinc-50">
+    <header className="sticky top-0 z-50 border-b border-line bg-canvas/95">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+        <a href="#home" className="flex items-center gap-2.5" onClick={close}>
+          <span className="grid h-8 w-8 place-items-center rounded-md bg-ink text-[11px] font-semibold text-canvas">
             {site.monogram}
           </span>
-          <span className="hidden text-sm font-medium tracking-tight text-zinc-100 sm:block">
-            {site.name}
-          </span>
+          <span className="hidden text-sm font-semibold sm:block">{site.name}</span>
         </a>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
@@ -68,10 +52,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`rounded-lg px-3 py-1.5 text-[13px] transition-colors ${
-                active === link.href
-                  ? "bg-zinc-900 text-zinc-50"
-                  : "text-zinc-400 hover:bg-zinc-900/70 hover:text-zinc-100"
+              className={`rounded-md px-3 py-1.5 text-[13px] ${
+                active === link.href ? "bg-paper text-ink" : "text-mute hover:text-ink"
               }`}
             >
               {link.label}
@@ -83,14 +65,14 @@ export default function Navbar() {
           <StatusBadge label={site.availabilityLabel} className="hidden md:inline-flex" />
           <a
             href={site.resumeUrl}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-1.5 text-[13px] font-medium text-zinc-100 transition-colors hover:border-zinc-700 hover:bg-zinc-800"
+            className="inline-flex items-center gap-1.5 rounded-md bg-mango px-3 py-1.5 text-[13px] font-semibold text-ink"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             Resume
           </a>
           <button
             type="button"
-            className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-200 lg:hidden"
+            className="grid h-9 w-9 place-items-center rounded-md border border-line lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -102,25 +84,19 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <div
-          id="mobile-nav"
-          className="pointer-events-auto mx-auto mt-2 max-w-6xl rounded-2xl border border-zinc-800/80 bg-zinc-950/95 p-3 backdrop-blur-md lg:hidden"
-        >
+        <div id="mobile-nav" className="border-t border-line bg-canvas px-4 py-3 lg:hidden">
           <nav className="grid gap-1" aria-label="Mobile">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={close}
-                className="rounded-lg px-3 py-2.5 text-sm text-zinc-200 hover:bg-zinc-900"
+                className="rounded-md px-3 py-2.5 text-sm hover:bg-paper"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="mt-3 px-3 pb-2">
-            <StatusBadge label={site.availabilityLabel} />
-          </div>
         </div>
       ) : null}
     </header>

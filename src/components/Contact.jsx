@@ -71,50 +71,44 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-28 py-20 sm:py-24">
+    <section id="contact" className="scroll-mt-24 border-t border-line py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="grid gap-10 rounded-3xl border border-zinc-800/80 bg-zinc-950/55 p-6 backdrop-blur-md sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-10 border border-line bg-paper p-6 sm:p-10 lg:grid-cols-2">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-violet-300/80">
-              Contact
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-zinc-50 sm:text-4xl">
+            <p className="text-sm font-medium text-forest">Contact</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
               Start a project.
             </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
-              Email is fastest. If the form is easier, it opens a message in your mail client — nothing is stored on a server.
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-mute">
+              Email is fastest. The form opens your mail app — nothing is stored on a server.
             </p>
-
-            <div className="mt-8 rounded-2xl border border-zinc-800/80 bg-zinc-900/30 p-5">
-              <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">Direct email</p>
+            <div className="mt-8">
+              <p className="text-xs text-mute">Direct email</p>
               <div className="mt-3 flex flex-wrap items-center gap-3">
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-zinc-100"
-                >
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 text-sm font-semibold">
                   <Mail className="h-4 w-4" aria-hidden="true" />
                   {site.email}
                 </a>
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-800 px-2.5 py-1 text-xs text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-50"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-line px-2.5 py-1 text-xs hover:bg-canvas"
                 >
-                  {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                  {copied ? <Check className="h-3.5 w-3.5 text-forest" /> : <Copy className="h-3.5 w-3.5" />}
                   {copied ? "Copied" : "Copy"}
                 </button>
               </div>
-              <p className="mt-4 text-sm text-zinc-400">
+              <p className="mt-4 text-sm text-mute">
                 Local time · {site.timezoneLabel}
-                {clock ? <span className="text-zinc-200"> · {clock}</span> : null}
+                {clock ? <span className="text-ink"> · {clock}</span> : null}
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
+          <Reveal delay={0.06}>
             <form className="grid gap-4" onSubmit={onSubmit} noValidate>
               <div className="grid gap-1.5">
-                <label htmlFor="name" className="text-sm text-zinc-300">
+                <label htmlFor="name" className="text-sm">
                   Full name
                 </label>
                 <input
@@ -122,12 +116,12 @@ export default function Contact() {
                   name="name"
                   autoComplete="name"
                   placeholder="Your name"
-                  className="rounded-xl border border-zinc-800 bg-zinc-950/70 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600"
+                  className="rounded-md border border-line bg-canvas px-3 py-2.5 text-sm"
                 />
-                {errors.name ? <p className="text-xs text-red-400">{errors.name}</p> : null}
+                {errors.name ? <p className="text-xs text-red-700">{errors.name}</p> : null}
               </div>
               <div className="grid gap-1.5">
-                <label htmlFor="email" className="text-sm text-zinc-300">
+                <label htmlFor="email" className="text-sm">
                   Email address
                 </label>
                 <input
@@ -136,12 +130,12 @@ export default function Contact() {
                   type="email"
                   autoComplete="email"
                   placeholder="you@email.com"
-                  className="rounded-xl border border-zinc-800 bg-zinc-950/70 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600"
+                  className="rounded-md border border-line bg-canvas px-3 py-2.5 text-sm"
                 />
-                {errors.email ? <p className="text-xs text-red-400">{errors.email}</p> : null}
+                {errors.email ? <p className="text-xs text-red-700">{errors.email}</p> : null}
               </div>
               <div className="grid gap-1.5">
-                <label htmlFor="message" className="text-sm text-zinc-300">
+                <label htmlFor="message" className="text-sm">
                   Project details
                 </label>
                 <textarea
@@ -149,18 +143,18 @@ export default function Contact() {
                   name="message"
                   rows="5"
                   placeholder="What should we build?"
-                  className="resize-y rounded-xl border border-zinc-800 bg-zinc-950/70 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600"
+                  className="resize-y rounded-md border border-line bg-canvas px-3 py-2.5 text-sm"
                 />
-                {errors.message ? <p className="text-xs text-red-400">{errors.message}</p> : null}
+                {errors.message ? <p className="text-xs text-red-700">{errors.message}</p> : null}
               </div>
               <button
                 type="submit"
-                className="mt-2 inline-flex items-center justify-center rounded-xl bg-zinc-50 px-4 py-2.5 text-sm font-medium text-zinc-950 transition-colors hover:bg-white"
+                className="mt-1 inline-flex items-center justify-center rounded-md bg-mango px-4 py-2.5 text-sm font-semibold text-ink"
               >
                 Send message
               </button>
               {status ? (
-                <p className="text-sm text-emerald-400" role="status">
+                <p className="text-sm text-forest" role="status">
                   {status}
                 </p>
               ) : null}

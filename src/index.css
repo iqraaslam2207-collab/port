@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --color-canvas: #09090b;
-  --color-canvas-soft: #111113;
-  --color-ink: #f4f4f5;
-  --color-mute: #a1a1aa;
-  --color-line: rgb(39 39 42 / 0.8);
-  --color-accent: #a78bfa;
-  --color-accent-strong: #8b5cf6;
-  --color-signal: #34d399;
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #f4f1ea;
+  --color-paper: #fffdf8;
+  --color-ink: #1c2430;
+  --color-mute: #5a645c;
+  --color-line: #d7d0c3;
+  --color-mango: #e3a21a;
+  --color-forest: #1f3d32;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -26,21 +25,15 @@ body {
 body {
   font-family: var(--font-sans);
   line-height: 1.65;
-  background-image:
-    radial-gradient(circle at top, rgb(139 92 246 / 0.07), transparent 42%),
-    linear-gradient(to right, rgb(255 255 255 / 0.028) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.028) 1px, transparent 1px);
-  background-size: auto, 72px 72px, 72px 72px;
-  background-attachment: fixed;
 }
 
 ::selection {
-  background: rgb(139 92 246 / 0.35);
-  color: white;
+  background: color-mix(in oklab, var(--color-mango) 55%, white);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-forest);
   outline-offset: 3px;
 }
 
@@ -49,14 +42,37 @@ body {
   left: 1rem;
   top: -3rem;
   z-index: 80;
-  border-radius: 0.5rem;
-  background: white;
-  color: #09090b;
+  border-radius: 0.4rem;
+  background: var(--color-ink);
+  color: var(--color-canvas);
   padding: 0.5rem 0.75rem;
 }
 
 .skip-link:focus {
   top: 1rem;
+}
+
+.window {
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  box-shadow: 0 18px 40px -28px rgb(28 36 48 / 0.45);
+}
+
+.window-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-bottom: 1px solid var(--color-line);
+  background: #efeae0;
+  padding: 0.45rem 0.7rem;
+}
+
+.window-chrome span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: #c9c1b3;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -70,6 +86,5 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
