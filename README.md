@@ -25,7 +25,7 @@ All copy, projects, tech categories, experience, and social links live in one fi
 
 ```
 src/
-  components/   Navbar, Hero, About, TechStack, TechBadge,
-                Projects, ProjectCard, Experience, Contact, Footer
+  components/   Navbar, Hero, Metrics, TechStack, Projects,
+                Playground, Experience, Contact, Footer
   data/site.js  editable content
 ```

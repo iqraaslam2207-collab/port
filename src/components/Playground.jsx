@@ -24,62 +24,64 @@ export default function Playground() {
   }, [rps, burst]);
 
   return (
-    <section className="px-4 py-12">
+    <section id="architecture" className="scroll-mt-28 px-4 py-16">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan">Architecture showcase</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-            API rate-limit visualizer
-          </h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">API rate-limit visualizer</h2>
           <p className="mt-3 text-sm text-mute">
             Token-bucket model: {limit} requests / {windowMs}ms. Push the slider or fire a burst to watch 429s appear.
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="glass mt-8 grid gap-6 rounded-2xl p-5 sm:p-7 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <label htmlFor="rps" className="font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
-              Requests / second · {rps}
-            </label>
-            <input
-              id="rps"
-              type="range"
-              min="1"
-              max="60"
-              value={rps}
-              onChange={(event) => setRps(Number(event.target.value))}
-              className="mt-3 w-full accent-violet"
-            />
-            <button
-              type="button"
-              onClick={() => {
-                setBurst(20);
-                window.setTimeout(() => setBurst(0), 900);
-              }}
-              className="mt-5 rounded-xl border border-line px-4 py-2 text-sm text-ink hover:border-cyan/40"
-            >
-              Fire +20 burst
-            </button>
-            <div className="mt-6 grid grid-cols-12 gap-1.5">
-              {Array.from({ length: 24 }).map((_, index) => {
-                const filled = index < result.accepted;
-                const overflow = index >= result.accepted && index < Math.min(24, result.incoming);
-                return (
-                  <span
-                    key={index}
-                    className={`h-7 rounded-sm ${
-                      filled ? "bg-signal/80" : overflow ? "bg-violet/70" : "bg-white/6"
-                    }`}
-                  />
-                );
-              })}
-            </div>
-            <p className="mt-3 font-mono text-[11px] text-mute">
-              green = accepted · violet = 429
-            </p>
+        <Reveal delay={0.08} className="glass glow-border mt-8 overflow-hidden rounded-2xl">
+          <div className="flex items-center gap-2 border-b border-line px-5 py-2.5">
+            <span className="h-2 w-2 rounded-full bg-signal" />
+            <span className="font-mono text-[11px] text-mute">gateway.ratelimit · live</span>
+            <span className={`ml-auto rounded-full px-2 py-0.5 font-mono text-[10px] uppercase ${result.allowed ? "text-signal" : "text-violet"}`}>
+              {result.allowed ? "200 OK" : "429 Too Many Requests"}
+            </span>
           </div>
+          <div className="grid gap-6 p-5 sm:p-7 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <label htmlFor="rps" className="font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
+                Requests / second · {rps}
+              </label>
+              <input
+                id="rps"
+                type="range"
+                min="1"
+                max="60"
+                value={rps}
+                onChange={(event) => setRps(Number(event.target.value))}
+                className="mt-3 w-full accent-violet"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  setBurst(20);
+                  window.setTimeout(() => setBurst(0), 900);
+                }}
+                className="mt-5 rounded-xl border border-line px-4 py-2 text-sm text-ink hover:border-cyan/40"
+              >
+                Fire +20 burst
+              </button>
+              <div className="mt-6 grid grid-cols-12 gap-1.5">
+                {Array.from({ length: 24 }).map((_, index) => {
+                  const filled = index < result.accepted;
+                  const overflow = index >= result.accepted && index < Math.min(24, result.incoming);
+                  return (
+                    <span
+                      key={index}
+                      className={`h-7 rounded-sm ${filled ? "bg-signal/80" : overflow ? "bg-violet/70" : "bg-white/6"}`}
+                    />
+                  );
+                })}
+              </div>
+              <p className="mt-3 font-mono text-[11px] text-mute">green = accepted · violet = 429</p>
+            </div>
 
-          <pre className="overflow-x-auto rounded-xl bg-black/35 p-4 font-mono text-[12px] leading-6 text-cyan">
+            <pre className="overflow-x-auto rounded-xl bg-black/35 p-4 font-mono text-[12px] leading-6 text-cyan">
 {JSON.stringify(
   {
     route: "/v1/search",
@@ -95,7 +97,8 @@ export default function Playground() {
   null,
   2
 )}
-          </pre>
+            </pre>
+          </div>
         </Reveal>
       </div>
     </section>

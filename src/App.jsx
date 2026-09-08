@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Metrics from "./components/Metrics.jsx";
 import Projects from "./components/Projects.jsx";
-import TechStack from "./components/TechStack.jsx";
 import Playground from "./components/Playground.jsx";
 import Experience from "./components/Experience.jsx";
 import Contact from "./components/Contact.jsx";
@@ -21,7 +20,6 @@ export default function App() {
         <main id="main">
           <Hero />
           <Metrics />
-          <TechStack />
           <Projects />
           <Playground />
           <Experience />

@@ -4,6 +4,7 @@ import { usePortfolio } from "../context/PortfolioContext.jsx";
 import Reveal from "./Reveal.jsx";
 import TechBadge from "./TechBadge.jsx";
 import TiltCard from "./TiltCard.jsx";
+import TechStack from "./TechStack.jsx";
 
 export default function Projects() {
   const { activeStack } = usePortfolio();
@@ -11,18 +12,28 @@ export default function Projects() {
   const rest = projects.filter((project) => project.id !== featured.id);
 
   return (
-    <section id="projects" className="scroll-mt-28 px-4 py-20">
+    <section id="projects" className="scroll-mt-28 px-4 py-16">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-2xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan">Featured work</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Production surfaces, not case-study filler.</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+            Production surfaces, not case-study filler.
+          </h2>
+          <p className="mt-3 text-sm text-mute">Hover a stack. Matching systems stay lit; the rest recede.</p>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
+        <Reveal delay={0.06} className="mt-8">
+          <TechStack />
+        </Reveal>
+
+        <div className="mt-6 grid gap-4 lg:grid-cols-6">
           <FeatureCard project={featured} dimmed={isDimmed(featured.id, activeStack)} featured />
-          {rest.map((project) => (
+          {rest.slice(0, 2).map((project) => (
             <FeatureCard key={project.id} project={project} dimmed={isDimmed(project.id, activeStack)} />
           ))}
+          {rest[2] ? (
+            <FeatureCard key={rest[2].id} project={rest[2]} dimmed={isDimmed(rest[2].id, activeStack)} wide />
+          ) : null}
         </div>
       </div>
     </section>
@@ -34,22 +45,32 @@ function isDimmed(id, activeStack) {
   return !activeStack.projectIds.includes(id);
 }
 
-function FeatureCard({ project, featured = false, dimmed = false }) {
+function FeatureCard({ project, featured = false, wide = false, dimmed = false }) {
   const isLive = project.liveUrl && project.liveUrl !== project.repoUrl;
+  const span = featured ? "lg:col-span-4 lg:row-span-2" : wide ? "lg:col-span-6" : "lg:col-span-2";
 
   return (
-    <TiltCard className={featured ? "lg:col-span-2 lg:row-span-2" : ""}>
+    <TiltCard className={span}>
       <article
         className={`glass group h-full overflow-hidden rounded-2xl transition-[opacity,box-shadow] duration-300 ${
-          dimmed ? "opacity-35" : "hover:shadow-[0_0_0_1px_rgb(124_58_237_/_0.45),0_24px_60px_-32px_rgb(124_58_237_/_0.55)]"
+          wide ? "lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch" : ""
+        } ${
+          dimmed
+            ? "opacity-30"
+            : "hover:shadow-[0_0_0_1px_rgb(124_58_237_/_0.45),0_24px_60px_-32px_rgb(124_58_237_/_0.55)]"
         }`}
       >
-        <a href={project.liveUrl || project.repoUrl} target="_blank" rel="noopener noreferrer" className="block overflow-hidden">
+        <a
+          href={project.liveUrl || project.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block overflow-hidden"
+        >
           <img
             src={project.image}
             alt={project.alt}
             className={`w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] ${
-              featured ? "aspect-[16/9] lg:aspect-[16/8.4]" : "aspect-[16/10]"
+              featured ? "aspect-[16/9] lg:aspect-[16/8.6]" : wide ? "aspect-[16/9] lg:h-full lg:aspect-auto" : "aspect-[16/10]"
             }`}
           />
         </a>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks, site } from "../data/site.js";
 import StatusBadge from "./StatusBadge.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#projects");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const sections = navLinks
@@ -20,7 +20,7 @@ export default function Navbar() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target?.id) setActive(`#${visible.target.id}`);
       },
-      { rootMargin: "-35% 0px -50% 0px", threshold: [0.12, 0.3] }
+      { rootMargin: "-42% 0px -48% 0px", threshold: [0.15, 0.35] }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -38,15 +38,15 @@ export default function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-4">
-      <div className="pointer-events-auto glass glow-border mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-2xl px-3 py-2.5 sm:px-4">
+      <div className="pointer-events-auto glass glow-border mx-auto grid max-w-5xl grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl px-3 py-2 sm:px-4">
         <a href="#home" className="flex items-center gap-2.5" onClick={close}>
-          <span className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-panel font-mono text-[11px] font-semibold text-ink">
+          <span className="grid h-8 w-8 place-items-center rounded-lg border border-violet/30 bg-panel font-mono text-[11px] font-semibold text-ink">
             {site.monogram}
           </span>
-          <span className="hidden text-sm font-semibold sm:block">{site.name}</span>
+          <span className="hidden text-sm font-semibold lg:block">{site.name}</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav className="hidden items-center justify-center gap-0.5 md:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -60,15 +60,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-end gap-2">
           <StatusBadge label={site.availabilityLabel} className="hidden sm:inline-flex" />
-          <a
-            href={site.resumeUrl}
-            className="hidden items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[13px] text-ink hover:border-violet/50 sm:inline-flex"
-          >
-            <Download className="h-3.5 w-3.5" aria-hidden="true" />
-            Resume
-          </a>
           <button
             type="button"
             className="grid h-9 w-9 place-items-center rounded-lg border border-line md:hidden"
@@ -91,8 +84,11 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-          <div className="mt-3 px-1">
+          <div className="mt-3 flex items-center justify-between gap-3 px-1">
             <StatusBadge label={site.availabilityLabel} />
+            <a href={site.resumeUrl} className="text-sm text-mute" onClick={close}>
+              Resume
+            </a>
           </div>
         </div>
       ) : null}

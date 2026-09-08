@@ -12,17 +12,16 @@ export default function Reveal({
 }) {
   const reduce = useReducedMotion();
   const Tag = motion[as] || motion.div;
-  const hidden = reduce ? false : { opacity: 0, y: 22 };
   const shown = { opacity: 1, y: 0 };
 
   return (
     <Tag
       className={className}
-      initial={hidden}
+      initial={reduce || immediate ? false : { opacity: 0, y: 18 }}
       animate={immediate ? shown : undefined}
-      whileInView={immediate ? undefined : shown}
-      viewport={{ once: true, margin: "-72px" }}
-      transition={{ duration: 0.55, delay, ease }}
+      whileInView={immediate || reduce ? undefined : shown}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.5, delay, ease }}
       {...props}
     >
       {children}

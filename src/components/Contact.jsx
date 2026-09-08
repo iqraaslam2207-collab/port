@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import { site, socials } from "../data/site.js";
 import { usePortfolio } from "../context/PortfolioContext.jsx";
 import Reveal from "./Reveal.jsx";
@@ -38,7 +38,7 @@ export default function Contact() {
         <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan">Contact</p>
           <h2 className="mt-3 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">
-            Let’s build something scalable.
+            Let&apos;s build something scalable.
           </h2>
         </Reveal>
 
@@ -50,6 +50,10 @@ export default function Contact() {
             <a href={`mailto:${site.email}`} className="mt-6 inline-flex items-center gap-2 text-lg font-medium text-ink">
               <Mail className="h-5 w-5 text-cyan" />
               {site.email}
+            </a>
+            <a href={site.resumeUrl} className="mt-4 inline-flex items-center gap-2 text-sm text-mute hover:text-ink">
+              <Download className="h-4 w-4" />
+              Download resume
             </a>
             <ul className="mt-6 flex flex-wrap gap-2">
               {socials.map((item) => {
