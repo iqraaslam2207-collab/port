@@ -73,6 +73,12 @@ function kindLabel(kind: CaseStudy["kind"]): string {
       return "E-commerce";
     case "travel":
       return "Travel";
+    case "design":
+      return "Interior";
+    case "dashboard":
+      return "Dashboard";
+    case "intern":
+      return "Internship";
     default: {
       const _exhaustive: never = kind;
       return _exhaustive;

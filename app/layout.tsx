@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description:
     "Full stack developer specializing in MERN, Next.js, and custom WordPress. Scalable web applications, APIs, and high-performance CMS platforms.",
-  metadataBase: new URL("https://port.netlify.app"),
+  metadataBase: new URL("https://iqraaslam2207-collab.github.io/port/"),
   openGraph: {
     title: `${site.name} — ${site.title}`,
     description:

@@ -1,8 +1,8 @@
 # Iqra Aslam — Portfolio
 
-Gold-on-black personal site: case studies for Daraz Clone, Roamify Travels, and Holiday Directory.
+Gold-on-black personal site with live case studies from [iqraaslam2207-collab](https://github.com/iqraaslam2207-collab).
 
-**GitHub:** [iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
+**Live:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
 
 ## Run locally
 
@@ -13,14 +13,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy (Netlify)
+## Deploy
 
-This app is Next.js, so it needs Netlify (or Vercel) — not GitHub Pages.
+This app is a static Next.js export (`output: "export"`).
 
-1. Push this folder to GitHub (replace the old `port` repo, or create `portfolio`).
-2. On [Netlify](https://app.netlify.com): Add new site → Import from Git → pick that repo.
-3. Build command: `npm run build`. Netlify detects Next.js. Node 22 is set in `netlify.toml`.
-4. After the first deploy, set **Site name** if you want a cleaner URL, then paste that URL into `app/layout.tsx` (`metadataBase`) and into your GitHub profile **Website** field.
+### GitHub Pages (this repo)
+
+Push to the `portfolio-next` branch. The workflow builds with `GITHUB_PAGES=true` (so assets live under `/port`) and publishes the `out/` folder to `gh-pages`.
+
+Site: `https://iqraaslam2207-collab.github.io/port/`
+
+### Netlify
+
+Import this repo, production branch `portfolio-next`. Build command `npm run build`, publish directory `out`. Do **not** set `GITHUB_PAGES` — Netlify serves the site at the domain root.
 
 ## Customize
 
