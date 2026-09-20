@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/roamify-travels.jpg",
     imageAlt:
       "Roamify Travels homepage with ocean-cliff hero, booking bar, and destination cards",
-    live: "https://iqraaslam2207-collab.github.io/roamify-travels/",
+    live: "https://roamify-travels.netlify.app/",
     github: "https://github.com/iqraaslam2207-collab/roamify-travels",
   },
   {
