@@ -1,5 +1,7 @@
-import Image from "next/image";
 import { caseStudies, type CaseStudy } from "@/lib/projects";
+
+const asset = (path: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
 
 export function Work() {
   return (
@@ -23,12 +25,10 @@ function CaseCard({ project }: { project: CaseStudy }) {
   return (
     <article className="group overflow-hidden border border-line bg-bg transition-colors duration-300 hover:border-gold">
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-elevated">
-        <Image
-          src={project.image}
+        <img
+          src={asset(project.image)}
           alt={project.imageAlt}
-          fill
-          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
-          className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
         />
       </div>
       <div className="p-5">
