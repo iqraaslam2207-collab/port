@@ -22,8 +22,17 @@ export function Work() {
 }
 
 function CaseCard({ project }: { project: CaseStudy }) {
+  const isExternal = project.live.startsWith("http");
+
   return (
-    <article className="group overflow-hidden border border-line bg-bg transition-colors duration-300 hover:border-gold">
+    <article className="group relative overflow-hidden border border-line bg-bg transition-colors duration-300 hover:border-gold">
+      <a
+        href={project.live}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        className="absolute inset-0 z-10"
+        aria-label={`${project.title} live demo`}
+      />
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-elevated">
         <img
           src={asset(project.image)}
@@ -43,14 +52,8 @@ function CaseCard({ project }: { project: CaseStudy }) {
             </div>
           ))}
         </dl>
-        <div className="flex gap-4 text-sm">
-          <a
-            href={project.live}
-            {...(project.live.startsWith("http")
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
-            className="text-gold hover:text-gold-hover"
-          >
+        <div className="relative z-20 flex gap-4 text-sm">
+          <a href={project.live} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="text-gold hover:text-gold-hover">
             Live demo
           </a>
           <a
@@ -73,12 +76,6 @@ function kindLabel(kind: CaseStudy["kind"]): string {
       return "E-commerce";
     case "travel":
       return "Travel";
-    case "design":
-      return "Interior";
-    case "dashboard":
-      return "Dashboard";
-    case "intern":
-      return "Internship";
     default: {
       const _exhaustive: never = kind;
       return _exhaustive;

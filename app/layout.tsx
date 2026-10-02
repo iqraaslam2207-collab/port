@@ -40,10 +40,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${outfit.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-bg font-sans text-fg">
+      <head>
         <ThemeScript />
-        {children}
-      </body>
+      </head>
+      <body className="min-h-full bg-bg font-sans text-fg">{children}</body>
     </html>
   );
 }

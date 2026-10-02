@@ -1,5 +1,71 @@
 @import "tailwindcss";
 
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+
+@property --bg-elevated {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+
+@property --bg-input {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0d0d0d;
+}
+
+@property --fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f3f3f3;
+}
+
+@property --fg-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9c9c9c;
+}
+
+@property --fg-faint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #707070;
+}
+
+@property --line {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #242424;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c89b6d;
+}
+
+@property --accent-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d4b18a;
+}
+
+@property --on-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #111;
+}
+
+@property --hero-glow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
 :root {
   --nav-h: 76px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -66,11 +132,19 @@ body {
   font-family: var(--font-sans);
 }
 
-html,
-body {
+html {
   transition:
-    background-color 220ms var(--ease-out-expo),
-    color 220ms var(--ease-out-expo);
+    --bg 220ms var(--ease-out-expo),
+    --bg-elevated 220ms var(--ease-out-expo),
+    --bg-input 220ms var(--ease-out-expo),
+    --fg 220ms var(--ease-out-expo),
+    --fg-muted 220ms var(--ease-out-expo),
+    --fg-faint 220ms var(--ease-out-expo),
+    --line 220ms var(--ease-out-expo),
+    --accent 220ms var(--ease-out-expo),
+    --accent-hover 220ms var(--ease-out-expo),
+    --on-accent 220ms var(--ease-out-expo),
+    --hero-glow 220ms var(--ease-out-expo);
 }
 
 :focus-visible {
@@ -149,7 +223,6 @@ html[data-theme="light"] .theme-icon-moon {
   }
 
   html,
-  body,
   .field {
     transition: none;
   }
