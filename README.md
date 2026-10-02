@@ -1,42 +1,33 @@
 # Iqra Aslam — Portfolio
 
-Professional front-end developer portfolio showcasing selected web projects.
+Gold-on-black personal site with live case studies from [iqraaslam2207-collab](https://github.com/iqraaslam2207-collab).
 
-## Live demo
+**Live:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
 
-**[View portfolio](https://iqraaslam2207-collab.github.io/port/)**
+## Run locally
 
-> Repo abhi `port` ke naam se hai. GitHub → Settings → Repository name → `portfolio` rename kar sakti ho.
+```bash
+npm install
+npm run dev
+```
 
-# Iqra Aslam — Frontend Developer
+Open [http://localhost:3000](http://localhost:3000).
 
-Hi, I'm Iqra Aslam, a frontend developer from Faisalabad, Pakistan. I build clean, modern, and responsive websites.
+## Deploy
 
-## Live Portfolio
-**[View Live Portfolio](https://iqraaslam2207-collab.github.io/port/)**
+This app is a static Next.js export (`output: "export"`).
 
-## Featured Projects
+### GitHub Pages (this repo)
 
-### 1. Holiday Directory
-Vacation rental platform with search, packages, and booking form.
-- **Live**: [View Project](https://iqraaslam2207-collab.github.io/holiday-directory/home.html)
-- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/holiday-directory)
+Push to the `portfolio-next` branch. The workflow builds with `GITHUB_PAGES=true` (so assets live under `/port`) and publishes the `out/` folder to `gh-pages`.
 
-### 2. Daraz Clone
-Responsive e-commerce homepage inspired by Daraz.pk.
-- **Live**: [View Project](https://iqraaslam2207-collab.github.io/daraz-clone/)
-- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/daraz-clone)
+Site: `https://iqraaslam2207-collab.github.io/port/`
 
-## Tech Stack
-- HTML5
-- CSS3 & Tailwind CSS
-- JavaScript
-- React (Learning)
-- Git & GitHub
+### Netlify
 
-## About Me
-I'm passionate about creating beautiful user interfaces and learning frontend developmer. Open to freelance opportunities.
+Import this repo, production branch `portfolio-next`. Build command `npm run build`, publish directory `out`. Do **not** set `GITHUB_PAGES` — Netlify serves the site at the domain root.
 
-## Contact
-- GitHub: [@iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
-- Email: [iqraaslam2207@gmail.com]
+## Customize
+
+- `lib/site.ts` — name, email, GitHub, LinkedIn
+- `lib/projects.ts` — case studies and screenshots
