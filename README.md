@@ -1,31 +1,42 @@
 # Iqra Aslam — Portfolio
 
-Sleek, engineering-driven personal site. Built with **React**, **Vite**, **Tailwind CSS**, **Framer Motion**, and **Lucide**.
+Professional front-end developer portfolio showcasing selected web projects.
 
-**Live:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
+## Live demo
 
-## Run locally
+**[View portfolio](https://iqraaslam2207-collab.github.io/port/)**
 
-```bash
-npm install
-npm run dev
-```
+> Repo abhi `port` ke naam se hai. GitHub → Settings → Repository name → `portfolio` rename kar sakti ho.
 
-## Swap content
+# Iqra Aslam — Frontend Developer
 
-All copy, projects, tech categories, experience, and social links live in one file:
+Hi, I'm Iqra Aslam, a frontend developer from Faisalabad, Pakistan. I build clean, modern, and responsive websites.
 
-[`src/data/site.js`](src/data/site.js)
+## Live Portfolio
+**[View Live Portfolio](https://iqraaslam2207-collab.github.io/port/)**
 
-- Add a LinkedIn URL to `site.linkedin` to show that icon in the hero.
-- Replace `public/resume.html` (or point `resumeUrl` at a PDF in `public/`).
-- Drop project screenshots into `public/images/` and update the `projects` array.
+## Featured Projects
 
-## Structure
+### 1. Holiday Directory
+Vacation rental platform with search, packages, and booking form.
+- **Live**: [View Project](https://iqraaslam2207-collab.github.io/holiday-directory/home.html)
+- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/holiday-directory)
 
-```
-src/
-  components/   Navbar, Hero, Metrics, TechStack, Projects,
-                Playground, Experience, Contact, Footer
-  data/site.js  editable content
-```
+### 2. Daraz Clone
+Responsive e-commerce homepage inspired by Daraz.pk.
+- **Live**: [View Project](https://iqraaslam2207-collab.github.io/daraz-clone/)
+- **Code**: [GitHub](https://github.com/iqraaslam2207-collab/daraz-clone)
+
+## Tech Stack
+- HTML5
+- CSS3 & Tailwind CSS
+- JavaScript
+- React (Learning)
+- Git & GitHub
+
+## About Me
+I'm passionate about creating beautiful user interfaces and learning frontend developmer. Open to freelance opportunities.
+
+## Contact
+- GitHub: [@iqraaslam2207-collab](https://github.com/iqraaslam2207-collab)
+- Email: [iqraaslam2207@gmail.com]
