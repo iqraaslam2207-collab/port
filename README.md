@@ -2,10 +2,7 @@
 
 Gold-on-black personal site with live case studies from [iqraaslam2207-collab](https://github.com/iqraaslam2207-collab).
 
-## Live
-
-- **GitHub Pages:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
-- **Netlify:** [jade-empanada-ff51a6.netlify.app](https://jade-empanada-ff51a6.netlify.app/)
+**Live:** [iqraaslam2207-collab.github.io/port](https://iqraaslam2207-collab.github.io/port/)
 
 ## Run locally
 
@@ -28,9 +25,7 @@ Site: [https://iqraaslam2207-collab.github.io/port/](https://iqraaslam2207-colla
 
 ### Netlify
 
-Live: [https://jade-empanada-ff51a6.netlify.app/](https://jade-empanada-ff51a6.netlify.app/)
-
-Production branch `main`. Build command `npm run build`, publish directory `out`. Do **not** set `GITHUB_PAGES` — Netlify serves the site at the domain root.
+The previous Netlify URL (`jade-empanada-ff51a6.netlify.app`) is no longer live. To publish again, import this repo with production branch `portfolio-next`, build command `npm run build`, and publish directory `out`. Do **not** set `GITHUB_PAGES` — Netlify serves the site at the domain root.
 
 ## Customize
 
